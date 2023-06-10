@@ -149,17 +149,17 @@ function checkApplePosition(pos) {
 function checkForLoss(pos) {
   //checks if the player has run into itself or hit the edge
   if(gameState === 1) {
-  for(var i = 1; i<pos.length; i++) {
-    if(pos[0][0] === pos[i][0] && pos[0][1] === pos[i][1]) {
-      gameState = 2;
+    for(var i = 1; i<pos.length; i++) {
+      if(pos[0][0] === pos[i][0] && pos[0][1] === pos[i][1]) {
+        gameState = 2;
+      }
     }
-  }
 
-  if(pos[0][0]<=0 || pos[0][0]>=380 || pos[0][1]<=0 || pos[0][1]>=380) {
-    gameState = 2;
-  } else {
+    if(pos[0][0]<=0 || pos[0][0]>=380 || pos[0][1]<=0 || pos[0][1]>=380) {
+      gameState = 2;
+    } else {
 
-  }
+    }
   }
 }
 
@@ -200,8 +200,8 @@ function eatApple(pos) {
 
 function createApple() {
   //creates an apple in a random position
-  let x = floor(random(1,19))*20;
-  let y = floor(random(1,19))*20;
+  let x = currentKey == 'left' ? playerPositions[0][0] - 20 : (currentKey == 'right' ? playerPositions[0][0] + 20 : playerPositions[0][0]);
+  let y = currentKey == 'up' ? playerPositions[0][1] - 20 : (currentKey == 'down' ? playerPositions[0][1] + 20 : playerPositions[0][1]);
 
   apple = [x,y];
 }
